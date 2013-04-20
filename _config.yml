@@ -1,0 +1,22 @@
+safe: false
+auto: true
+server: false
+server_port: 4000
+baseurl: /
+source: .
+destination: ./_site
+plugins: ./_plugins
+future: true
+markdown: rdiscount
+permalink: pretty
+pygments: true
+lsi: true
+exclude: ["Rakefile", "README.md", "CONTRIBUTING.md"]
+
+rdiscount:
+  extensions: [smart]
+
+name: Beer && Code Omaha
+url: http://omaha.beerandcode.org
+github: BeerAndCode
+twitter: BeerCodeOmaha
