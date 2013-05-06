@@ -1,0 +1,179 @@
+@import-once "mixins";
+
+@columns: 12;
+@rowPadding: 0px;
+
+@fixedColumnWidth: 79px;
+@fixedColumnMargin: 11px;
+@fixedRowWidth: 86.875%; // 930px / 960px
+
+// fluid grid variables
+@fluidColumnMargin: 1.145833333%; // 11px / 960px
+@fluidColumnWidth: 7.1875%; // 69px / 960px
+@fluidRowWidth: 96.875%; // 930px / 960px
+
+// @columnWidth: @fluidColumnWidth;
+// @columnMargin: @fluidColumnMargin;
+// @rowWidth: 93.75%; // 900px / 960px
+@rowWidth: 96.875%; // 930px / 960px
+// @rowWidth: (@columns * @columnWidth) + (@columnMargin * (@columns - 1));
+
+#grid {
+    .row() {
+        .clear();
+        padding-top: @rowPadding;
+        padding-bottom: @rowPadding;
+    }
+
+// mixin to make a fluid row a fixed size and centered
+    .fix-row(@maxWidth: 960px) {
+        & .fluid-row {
+            max-width: @maxWidth;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .column(@col, @width, @margin) {
+        display: block;
+        float: left; // position: relative;
+        min-height: 35px;
+        margin-left: @margin;
+        width: (@width * @col) + (@margin * (@col - 1));
+        .box-sizing(border-box);
+    }
+
+    .push(@push, @width, @margin) {
+        margin-left: (@width * @push) + (@margin * (@push - 1)) !important;
+    }
+
+    .grid-container() {
+        display: block;
+        float: left;
+        min-height: 35px;
+        width: @rowWidth;
+        .box-sizing(border-box); // width: @width;
+        // margin-right: auto;
+        // margin-left: auto;
+        // padding-right: @margin;
+        // padding-left: @margin;
+        // clear: both;
+        // .clearfix;
+    }
+
+    .right(@margin) {
+        float: right;
+        margin-right: @margin;
+    }
+}
+
+.clear () {
+    clear: both;
+    .clearfix();
+}
+
+.container {
+    #grid > .grid-container();
+}
+
+.container-fixed {
+    margin-left: auto;
+    margin-right: auto;
+    .clearfix();
+}
+
+.fixed-row {
+    #grid > .row();
+    width: @fixedRowWidth;
+
+    [class*=span] {
+        &.right { #grid > .right(@fixedColumnMargin); }
+        &:first-child { margin-left: 0; }
+    }
+
+    .span1 { #grid > .column(1, @fixedColumnWidth, @fixedColumnMargin); }
+    .span2 { #grid > .column(2, @fixedColumnWidth, @fixedColumnMargin); }
+    .span3 { #grid > .column(3, @fixedColumnWidth, @fixedColumnMargin); }
+    .span4 { #grid > .column(4, @fixedColumnWidth, @fixedColumnMargin); }
+    .span5 { #grid > .column(5, @fixedColumnWidth, @fixedColumnMargin); }
+    .span6 { #grid > .column(6, @fixedColumnWidth, @fixedColumnMargin); }
+    .span7 { #grid > .column(7, @fixedColumnWidth, @fixedColumnMargin); }
+    .span8 { #grid > .column(8, @fixedColumnWidth, @fixedColumnMargin); }
+    .span9 { #grid > .column(9, @fixedColumnWidth, @fixedColumnMargin); }
+    .span10 { #grid > .column(10, @fixedColumnWidth, @fixedColumnMargin); }
+    .span11 { #grid > .column(11, @fixedColumnWidth, @fixedColumnMargin); }
+    .span12 { #grid > .column(12, @fixedColumnWidth, @fixedColumnMargin); }
+
+    .offset1 { #grid > .push(1, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset2 { #grid > .push(2, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset3 { #grid > .push(3, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset4 { #grid > .push(4, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset5 { #grid > .push(5, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset6 { #grid > .push(6, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset7 { #grid > .push(7, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset8 { #grid > .push(8, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset9 { #grid > .push(9, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset10 { #grid > .push(10, @fixedColumnWidth, @fixedColumnMargin); }
+    .offset11 { #grid > .push(11, @fixedColumnWidth, @fixedColumnMargin); }
+}
+
+.row, .fluid-row {
+    #grid > .row();
+    // width: @fluidRowWidth;
+    width: 100%;
+    [class*=span] {
+        &.right { #grid > .right(@fluidColumnMargin); }
+        &:first-child { margin-left: 0; }
+    }
+
+    .span1 { #grid > .column(1, @fluidColumnWidth, @fluidColumnMargin); }
+    .span2 { #grid > .column(2, @fluidColumnWidth, @fluidColumnMargin); }
+    .span3 { #grid > .column(3, @fluidColumnWidth, @fluidColumnMargin); }
+    .span4 { #grid > .column(4, @fluidColumnWidth, @fluidColumnMargin); }
+    .span5 { #grid > .column(5, @fluidColumnWidth, @fluidColumnMargin); }
+    .span6 { #grid > .column(6, @fluidColumnWidth, @fluidColumnMargin); }
+    .span7 { #grid > .column(7, @fluidColumnWidth, @fluidColumnMargin); }
+    .span8 { #grid > .column(8, @fluidColumnWidth, @fluidColumnMargin); }
+    .span9 { #grid > .column(9, @fluidColumnWidth, @fluidColumnMargin); }
+    .span10 { #grid > .column(10, @fluidColumnWidth, @fluidColumnMargin); }
+    .span11 { #grid > .column(11, @fluidColumnWidth, @fluidColumnMargin); }
+    .span12 { #grid > .column(12, @fluidColumnWidth, @fluidColumnMargin); }
+
+    .offset1 { #grid > .push(1, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset2 { #grid > .push(2, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset3 { #grid > .push(3, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset4 { #grid > .push(4, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset5 { #grid > .push(5, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset6 { #grid > .push(6, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset7 { #grid > .push(7, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset8 { #grid > .push(8, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset9 { #grid > .push(9, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset10 { #grid > .push(10, @fluidColumnWidth, @fluidColumnMargin); }
+    .offset11 { #grid > .push(11, @fluidColumnWidth, @fluidColumnMargin); }
+}
+
+@media (max-width: 600px) {
+    // grid
+    .fixed-container, .fluid-container {
+        width: auto;
+    }
+
+    .row, .fluid-row, .fixed-row {
+        width: 100%;
+        margin-left: 0;
+
+        [class*="span"] {
+            float: none;
+            display: block;
+            width: auto;
+            margin-left: auto;
+            &.right {
+                float: none;
+                margin-right: auto;
+            }
+        }
+        [class*="offset"] {
+            margin-left: auto !important;
+        }
+    }
+}

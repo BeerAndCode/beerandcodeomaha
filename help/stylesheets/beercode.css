@@ -1,0 +1,12 @@
+.logo {
+    background-image: url("/images/beercodelogo.png");
+    width: 128px;
+    height: 128px;
+    background-size: 128px 128px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+header h1 {
+    display: inline;
+}

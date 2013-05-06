@@ -11,7 +11,7 @@ markdown: rdiscount
 permalink: pretty
 pygments: true
 lsi: true
-exclude: ["Rakefile", "README.md", "CONTRIBUTING.md"]
+exclude: ["assets", "Rakefile", "README.md", "CONTRIBUTING.md"]
 
 rdiscount:
   extensions: [smart]

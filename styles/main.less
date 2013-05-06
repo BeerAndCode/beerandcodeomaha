@@ -1,0 +1,45 @@
+@import-once "colorscheme";
+@import-once "mixins";
+@import-once "grid";
+
+hmtl, body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+#main-header {
+    min-height: 160px;
+    h1 {
+        font-size: 3.4em;
+        width: 400px;
+        display: block;
+        position: relative;
+        text-align: center;
+        vertical-align: baseline;
+        color: @black;
+        z-index: 1000;
+        .location {
+            z-index: -100;
+            color: @complementaryLight;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 130%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+    }
+    nav {
+        text-align: center;
+        ul {
+            list-style: none;
+            li {
+                display: inline-block;
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

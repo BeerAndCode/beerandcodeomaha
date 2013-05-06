@@ -4,3 +4,4 @@ _cache/
 .bundle/
 node_modules/
 components/
+serve/
