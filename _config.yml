@@ -1,6 +1,4 @@
-safe: false
-auto: true
-server: false
+safe: true
 server_port: 4000
 baseurl: /
 source: .
@@ -10,13 +8,13 @@ future: true
 markdown: rdiscount
 permalink: pretty
 pygments: true
-lsi: true
-exclude: ["assets", "Rakefile", "README.md", "CONTRIBUTING.md"]
+lsi: false
+exclude: ["tumblr.rb", "assets", "Rakefile", "README.md", "CONTRIBUTING.md"]
 
 rdiscount:
   extensions: [smart]
 
-name: Beer && Code Omaha
+name: "Beer && Code Omaha"
 url: http://omaha.beerandcode.org
 github: BeerAndCode
 twitter: BeerCodeOmaha
