@@ -1,11 +1,16 @@
 ---
-title: Beer && Code Omaha
 layout: default
 ---
-<ul>
-    {% for post in site.posts do %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
+
+<div class="container">
+    <div class="row">
+        <div class="span8" id="next-event">
+            {% assign post = site.posts.first %}
+            {% assign content = post.content %}
+            {% include post_detail.html %}
+        </div>
+        <div class="span4" id="twitter-feed">
+            {% include twitter.html %}
+        </div>
+    </div>
+</div>
